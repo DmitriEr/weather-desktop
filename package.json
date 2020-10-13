@@ -2,14 +2,9 @@
   "name": "weather-desktop",
   "version": "0.1.0",
   "private": true,
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "npm run lint"
-    ]
-  },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run lint"
     }
   },
   "dependencies": {
@@ -21,6 +16,7 @@
     "@types/node": "^12.12.63",
     "@types/react-dom": "^16.9.8",
     "antd": "^4.6.6",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",

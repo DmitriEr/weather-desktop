@@ -1,38 +1,65 @@
-.App {
+@import '~antd/dist/antd.css';
+
+body {
+  padding: 0px;
+  margin: 0px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(235, 225, 225);
+}
+
+
+.wether__city {
+  padding-top: 30px;
+  padding-bottom: 30px;
   text-align: center;
+  font-size: 35px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.weather__cards {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.weather__card {
+  height: 120px;
+  font-size: 20px;
+}
+
+.weather__card:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 900px) and (min-width: 701px) {
+
+  .weather__cards {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .wether__city {
+    font-size: 20px;
+  }
+
+  .weather__card {
+    font-size: 15px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 700px) and (min-width: 300px) {
+  .weather__cards {
+    display: grid;
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
+
+  .wether__city {
+    font-size: 20px;
+  }
+
+  .weather__card {
+    font-size: 15px;
   }
 }
