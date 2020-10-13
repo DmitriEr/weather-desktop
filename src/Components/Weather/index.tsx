@@ -1,31 +1,36 @@
 import React from 'react';
 import { Card, Avatar } from 'antd';
 import { days, monthes } from '../../Constants';
+import { TypeDateWeather } from '../../interfaces';
+import './index.scss';
 
 const { Meta } = Card;
 
-export const Day = (props: any) => {
-  const { data } = props;
-  const temperature = Math.round(data.temp[1].max.value);
-  const description = data.weather_code.value;
+interface Props {
+  dataWeather: TypeDateWeather;
+}
 
-  const getData = () => {
-    const dates: any = new Date(data.observation_time.value);
-    const num: any = dates.getDate();
-    const day: any = dates.getDay();
-    const month: any = dates.getMonth();
+export const Day: React.FunctionComponent<Props> = ({ dataWeather }) => {
+  const temperature: number = Math.round(dataWeather.temp[1].max.value);
+  const description: string = dataWeather.weather_code.value;
+
+  const getData: () => string = () => {
+    const dates: Date = new Date(dataWeather.observation_time.value);
+    const num: number = dates.getDate();
+    const day: number = dates.getDay();
+    const month: number = dates.getMonth();
     return `${num} ${monthes[month]}, ${days[day]}`;
   };
 
-  const number = getData();
+  const number: string = getData();
 
   return (
-    <Card tabIndex={0} className="weather__card">
+    <Card tabIndex={0} className="weather-card">
       <Meta
         avatar={
           <Avatar
-            src={`../src/Assets/${description}.svg`}
-            className="weather__description"
+            src={require(`../../Assets/${description}.svg`)}
+            className="weather-description"
           />
         }
         title={number}

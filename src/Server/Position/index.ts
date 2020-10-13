@@ -1,8 +1,9 @@
 import { API_URL_POSITION } from '../../Keys/index';
+import { TypeDataPosition } from '../../interfaces';
 
 const link = 'https://ipinfo.io';
 
-async function getCurrentPosition() {
+export const getCurrentPosition: () => Promise<TypeDataPosition> = async () => {
   try {
     const url = `${link}?token=${API_URL_POSITION}`;
     const response = await fetch(url);
@@ -16,6 +17,4 @@ async function getCurrentPosition() {
   } catch (error) {
     throw new Error(`Error in ipinfo - ${error.message}`);
   }
-}
-
-export default getCurrentPosition;
+};
