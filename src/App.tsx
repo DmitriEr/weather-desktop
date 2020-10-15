@@ -3,22 +3,12 @@ import { Layout, Select } from 'antd';
 import { Day } from './Components/Weather';
 import { getCurrentPosition } from './Server/Position';
 import { getWeather } from './Server/Weather';
-import { getTheme } from './Server/Theme';
-import {
-  TypeWeather,
-  TypeDataPosition,
-  TypeDateWeather,
-  TypeTheme,
-} from './interfaces';
+import { TypeWeather, TypeDataPosition, TypeDateWeather } from './interfaces';
 import { count } from './Constants';
 import './App.scss';
 
 const App: React.FunctionComponent = () => {
   const [result, setResult] = useState<Array<TypeDateWeather>>([]);
-  const [weatherDescription, setWeatherDescription] = useState<string>(
-    'cloudy'
-  );
-  const [background, setBackground] = useState<string>('');
   const [place, setPlace] = useState<TypeWeather>({
     cityName: '',
     latitude: '0',
@@ -43,15 +33,8 @@ const App: React.FunctionComponent = () => {
     const { cityName, latitude, longitude } = place;
     getWeather(latitude, longitude).then((weather: TypeDateWeather[]) => {
       setResult(weather);
-      setWeatherDescription(weather[0].weather_code.value);
     });
   }, [place]);
-
-  useEffect(() => {
-    getTheme(weatherDescription).then((theme: TypeTheme) =>
-      setBackground(theme.hits[0].largeImageURL)
-    );
-  }, [weatherDescription]);
 
   const handleChangeSelect = (value: number) => {
     setDays(value);
@@ -81,20 +64,13 @@ const App: React.FunctionComponent = () => {
       <div className="weather-content">
         {result.map((value: TypeDateWeather, index: number) => {
           if (index === 0) {
-            return <Day dataWeather={value} key={index} />;
+            return <Day dataWeather={value} todayWeather={true} key={index} />;
           } else if (index > 0 && index < days) {
             return <Day dataWeather={value} key={index} />;
           } else {
             return null;
           }
         })}
-      </div>
-      <div className="weather-background">
-        <img
-          src={background}
-          alt={weatherDescription}
-          className="weather-background__image"
-        />
       </div>
     </Layout>
   );
