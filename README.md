@@ -1,4 +1,4 @@
-# React-native weather application
+# Reac weather application
 
 Task description:
 
