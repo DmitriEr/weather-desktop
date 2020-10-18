@@ -9,18 +9,11 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.63",
-    "@types/react-dom": "^16.9.8",
     "antd": "^4.6.6",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3",
-    "typescript": "^3.7.5"
+    "react-scripts": "3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,7 +37,13 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.12.68",
     "@types/react": "^16.9.51",
+    "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^4.4.1",
     "@typescript-eslint/parser": "^4.4.1",
     "eslint": "^6.6.0",
@@ -53,6 +52,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.3",
     "husky": "^4.3.0",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "typescript": "^3.9.7"
   }
 }
